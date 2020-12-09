@@ -1,14 +1,14 @@
+// create an express app
 const express = require("express");
-const path = require("path");
-
 const app = express();
 
+// use the express-static middleware
 app.use(express.static("public"));
 
+// define the first route
 app.get("/", function (req, res) {
   res.send("<h1>Hello World!</h1>");
 });
 
-app.listen(5000, () => {
-  console.log("Listening on port 5000");
-});
+// start the server listening for requests
+app.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
